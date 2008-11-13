@@ -1,0 +1,9 @@
+* Lot of things
+* Set a timeout when webcam is not really sending data.
+* Replace Q_ASSERT for real conditions
+* Show grab mode on menu?
+* Check switching between plugin modes, if still works
+* Add croping ( provided by new libv4lconvert ). Adapt it to V4L2 specs
+* Some webcams do not really timeout, report me that
+-> Test switching IO Modes ( mmap -> read -> mmap ) over differents devices
+

@@ -1,0 +1,7 @@
+-> To add a new frame, just drop a png image on
+
+   /usr/share/rxwebcam/plugins/marcos/images/
+   
+   Size: 640x480 
+   Leave transparent the portions you wanna see throught the webcam.
+   

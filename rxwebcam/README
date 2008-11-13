@@ -1,0 +1,66 @@
+RxWebcam V0.1 beta
+
+Copyright (C) 2008 Costantino Leandro <le_costantino at pixartargentina dot com dot ar>
+
+
+ABOUT
+-----
+
+"Simple" V4L2 Webcam Viewer, based on QT4. ( 4.1.1 ) 
+
+It use libv4lconvert for converting between formats. ( you need this ,
+download it from http://people.atrpms.net/~hdegoede/libv4l-0.5.1.tar.gz or
+from lastest tarball on linuxtv.org/  ( i test with http://linuxtv.org/hg/~jfrancois/gspca/ )
+
+
+Some of the code needs a really clean up, and also brake any rules of
+patterns, since i merged part of old code i was using for another subprojects.
+
+The application supports plugins for effects, and any kind of service
+someone could develop for. Keep in mind that, processing images ( adding
+effects for example ) while streaming could decrease a lot of fps. 
+
+Video Record, is also supported if you have installed: ( won't be enabled if
+you dont )
+ 
+           * Revel Encoder (librevel-1.1.0.tar.bz2) 
+	     - http://revel.sourceforge.net (C) Cort Stratton
+	   * XVid Core 1.1.3 ( xvidcore-1.1.3.tar.gz )
+	        http://www.xvid.org/.  (c) C. Lampert, M. Militzer, P. Ross and others
+	   
+libv4lconvert was made by Hans de Goede <j.w.r.degoede@hhs.nl>. You can find
+it on lastest V4Linux Tree. ( http://www.linuxtx.org )
+
+Another portions of code are based on the work of Jean-Francois Moine <http://moinejf.free.fr>
+and Michel Xhaard <mxhaard@users.sourceforge.net>.
+
+
+INSTALLATION
+------------
+
+  0) Type cmake . on main directory
+  1) Look if  video record will be enabled or not
+  2) make 
+  3) make install
+  4) /usr/local/bin/rxwebcam 
+
+Translations
+------------
+Translations will be matched from locales (Spanish and English only ), also
+you could pass it on cmdline
+
+  /usr/local/bin/rxwebcam en_US      
+  
+( if you have UTF-8, you should link /usr/share/rxwebcam/locales/en_US /usr/share/rxwebcam/locales/en_US.UTF-8 )
+
+
+Also on  share_data/  it's the ts file. Create a directory in /usr/share/rxwebcam/locales/[locale_name] and drop the qm 
+there. ( Or copy it on share_data/locales/[LOCALE_DIR] ) and make install again.
+  
+
+
+Contributors
+--------------
+
+Translations PT_BR by Luiz Gonzaga Da Mata  <lgmata@gmail.com.br>
+

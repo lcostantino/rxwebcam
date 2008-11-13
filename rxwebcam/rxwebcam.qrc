@@ -1,0 +1,9 @@
+<RCC>
+  <qresource prefix="/proyect/qt4/" >
+    <file>iconos/kplato.png</file>
+    <file>iconos/stop.png</file>
+    <file>iconos/capturar.png</file>
+    <file>iconos/start.png</file>
+    <file>iconos/webcam.png</file>
+  </qresource>
+</RCC>

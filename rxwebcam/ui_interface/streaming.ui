@@ -1,0 +1,164 @@
+<ui version="4.0" >
+ <class>FormStreaming</class>
+ <widget class="QWidget" name="FormStreaming" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>540</width>
+    <height>253</height>
+   </rect>
+  </property>
+  <property name="sizePolicy" >
+   <sizepolicy vsizetype="MinimumExpanding" hsizetype="MinimumExpanding" >
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="maximumSize" >
+   <size>
+    <width>5555</width>
+    <height>5555</height>
+   </size>
+  </property>
+  <property name="windowTitle" >
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout" >
+   <item row="0" column="0" colspan="5" >
+    <widget class="QFrame" name="frame_stream" >
+     <property name="sizePolicy" >
+      <sizepolicy vsizetype="Minimum" hsizetype="MinimumExpanding" >
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="maximumSize" >
+      <size>
+       <width>1639</width>
+       <height>1111</height>
+      </size>
+     </property>
+     <property name="frameShape" >
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow" >
+      <enum>QFrame::Raised</enum>
+     </property>
+     <property name="lineWidth" >
+      <number>4</number>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0" >
+    <spacer name="horizontalSpacer" >
+     <property name="orientation" >
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeType" >
+      <enum>QSizePolicy::Expanding</enum>
+     </property>
+     <property name="sizeHint" stdset="0" >
+      <size>
+       <width>1</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="1" column="1" >
+    <widget class="QPushButton" name="pb_start" >
+     <property name="sizePolicy" >
+      <sizepolicy vsizetype="Preferred" hsizetype="Preferred" >
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="autoFillBackground" >
+      <bool>false</bool>
+     </property>
+     <property name="text" >
+      <string/>
+     </property>
+     <property name="icon" >
+      <iconset resource="../rxwebcam.qrc" >
+       <normaloff>:/proyect/qt4/iconos/start.png</normaloff>:/proyect/qt4/iconos/start.png</iconset>
+     </property>
+     <property name="iconSize" >
+      <size>
+       <width>40</width>
+       <height>36</height>
+      </size>
+     </property>
+     <property name="flat" >
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="2" >
+    <widget class="QPushButton" name="pb_stop" >
+     <property name="text" >
+      <string/>
+     </property>
+     <property name="icon" >
+      <iconset resource="../rxwebcam.qrc" >
+       <normaloff>:/proyect/qt4/iconos/stop.png</normaloff>:/proyect/qt4/iconos/stop.png</iconset>
+     </property>
+     <property name="iconSize" >
+      <size>
+       <width>40</width>
+       <height>36</height>
+      </size>
+     </property>
+     <property name="flat" >
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="3" >
+    <widget class="QPushButton" name="pb_capture" >
+     <property name="text" >
+      <string/>
+     </property>
+     <property name="icon" >
+      <iconset resource="../rxwebcam.qrc" >
+       <normaloff>:/proyect/qt4/iconos/capturar.png</normaloff>:/proyect/qt4/iconos/capturar.png</iconset>
+     </property>
+     <property name="iconSize" >
+      <size>
+       <width>40</width>
+       <height>36</height>
+      </size>
+     </property>
+     <property name="flat" >
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="4" >
+    <widget class="QPushButton" name="pb_movie" >
+     <property name="text" >
+      <string/>
+     </property>
+     <property name="icon" >
+      <iconset resource="../rxwebcam.qrc" >
+       <normaloff>:/proyect/qt4/iconos/kplato.png</normaloff>:/proyect/qt4/iconos/kplato.png</iconset>
+     </property>
+     <property name="iconSize" >
+      <size>
+       <width>40</width>
+       <height>36</height>
+      </size>
+     </property>
+     <property name="flat" >
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="../rxwebcam.qrc" />
+ </resources>
+ <connections/>
+</ui>

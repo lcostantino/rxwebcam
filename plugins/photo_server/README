@@ -1,0 +1,4 @@
+*Photo Plugin Server
+
+ -> This is an example plugin. It's really need to be improved, adding
+whitelists, qimage caches for avoiding replacing on send images, etc.

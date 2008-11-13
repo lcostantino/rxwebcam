@@ -1,0 +1,17 @@
+FILE(REMOVE
+"moc_plugin_marcos.cxx"
+"moc_ConfigPluginImp.cxx"
+"ui_configplugin.h"
+"libpluginmarcos.a"
+"libpluginmarcos.so"
+"CMakeFiles/pluginmarcos.dir/plugin_marcos.o"
+"CMakeFiles/pluginmarcos.dir/ui_interfaces/ConfigPluginImp.o"
+"CMakeFiles/pluginmarcos.dir/moc_plugin_marcos.o"
+"CMakeFiles/pluginmarcos.dir/moc_ConfigPluginImp.o"
+"CMakeFiles/CMakeRelink.dir/libpluginmarcos.a"
+"CMakeFiles/CMakeRelink.dir/libpluginmarcos.so"
+"CMakeFiles/pluginmarcos.dir/plugin_marcos.o"
+"CMakeFiles/pluginmarcos.dir/ui_interfaces/ConfigPluginImp.o"
+"CMakeFiles/pluginmarcos.dir/moc_plugin_marcos.o"
+"CMakeFiles/pluginmarcos.dir/moc_ConfigPluginImp.o"
+)
