@@ -43,7 +43,7 @@ ENDIF (V4LCONVERT_FOUND)
 IF (XVIDCORE_LIB AND REVEL_LIB )
   
   MESSAGE(STATUS "-> Video Record Enabled: ${XVIDCORE_LIB} && ${REVEL_LIB} Found")
-  MESSAGE(STATUS "-> Shared Video Record Libs  may increase binary in 700kb plus")
+  MESSAGE(STATUS "-> (testing ) Static Video Record Libs  may increase binary in 700kb plus")
    SET(OPTIONAL_LIBS ${REVEL_LIB} ${XVIDCORE_LIB} )  
    ADD_DEFINITIONS(-DWITH_XVID_RECORD  )
 

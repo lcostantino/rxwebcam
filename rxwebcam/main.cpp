@@ -31,7 +31,7 @@ void loadLocales( QString locale_name)
                                                              locale_name.remove(".UTF-8") :
                                                                 locale_name + ".UTF-8" ) );
 
-      qDebug(stderr,"Alternative Locale: %s\n",qPrintable( locale_dir.dirName() ) );
+      qDebug("Alternative Locale: %s\n",qPrintable( locale_dir.dirName() ) );
    }
    if( !locale_dir.exists() )
      {
