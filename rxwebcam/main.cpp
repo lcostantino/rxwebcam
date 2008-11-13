@@ -21,11 +21,18 @@
 void loadLocales( QString locale_name)
 {
    
-   QDir locale_dir("/usr/share/rxwebcam/locales" + locale_name );
+   QDir locale_dir("/usr/share/rxwebcam/locales/" + locale_name );
 
+/* Just in case, to allow in some future utf-8 and not on the same dir.
+   Currently use only the available ones  */
    if( !locale_dir.exists() )
-      locale_dir = QDir("/usr/share/rxwebcam/locales/" + locale_name + ".UTF-8" );
-   
+   {
+        locale_dir = QDir("/usr/share/rxwebcam/locales/" + ( locale_name.contains("UTF-8") ?
+                                                             locale_name.remove(".UTF-8") :
+                                                                locale_name + ".UTF-8" ) );
+
+      qDebug(stderr,"Alternative Locale: %s\n",qPrintable( locale_dir.dirName() ) );
+   }
    if( !locale_dir.exists() )
      {
 	
@@ -50,7 +57,7 @@ int main(int argc, char *argv[])
    QApplication qa(argc,argv);
   
    QObject::connect( &qa, SIGNAL( lastWindowClosed() ), &qa, SLOT(quit()));
-   if( argc > 1 && strlen(argv[1]) < 10)
+   if( argc > 1 && strlen(argv[1]) < 20)
      loadLocales(argv[1]);
    else  
      loadLocales(QLocale::system().name());
