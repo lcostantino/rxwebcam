@@ -39,6 +39,7 @@ static inline void handleError()
 RealStreamWidget::RealStreamWidget(QWidget *parent /*frame*/ ):QLabel(parent)
 {
    setAttribute(Qt::WA_OpaquePaintEvent,true);
+  // current_frame = new QImage(640,480,QImage::Format_RGB888);
    current_frame = new QImage(640,480,QImage::Format_RGB888);
    current_frame->fill(0);
 }
@@ -51,6 +52,7 @@ QImage * RealStreamWidget::shareImage()
 void RealStreamWidget::updateFrameSize( QSize new_size )
 {
    delete current_frame;
+   //current_frame = new QImage( new_size,QImage::Format_RGB888);
    current_frame = new QImage( new_size,QImage::Format_RGB888);
    Q_ASSERT( current_frame != NULL);
    setFixedSize(new_size);
@@ -183,7 +185,7 @@ void FormStreamingImp::enableButtons(bool state)
 {
    pb_start->setEnabled(state);
    pb_stop->setEnabled(state);
-#ifdef WITH_XVID_CAPTURE
+#ifdef WITH_XVID_RECORD
    pb_capture->setEnabled(state);
 #endif
 }
@@ -293,6 +295,8 @@ void FormStreamingImp::updateTimer()
 #ifdef WITH_XVID_RECORD
    if( on_movie_record == true )
      {
+	/* remember, its kinda simple app. It not inside any thread, and could 
+	 * slow the stream.*/
 	qDebug("Recording\n");
 	movie_grabber.addVideoFrame( webcam_frame);
      }
@@ -354,7 +358,13 @@ void FormStreamingImp::grabMovie()
 	     return;
 	  }
 	emit setStatus(QString(tr("Grabacion Finalizada")));
+	return;
      }
+   else if( current_webcam->isStreaming() ) 
+     { 
+	stopStream();
+     }
+   
    QString saveTo = QFileDialog::getSaveFileName(this,tr("Guardar video en..."),getenv("HOME"),tr("Video (*.avi)"));
    //no permitir cambio de size mientras graba!
    if( saveTo.isEmpty() )
@@ -392,5 +402,6 @@ FormStreamingImp::~FormStreamingImp()
      delete tet;
    if( current_webcam)
      delete current_webcam;
+  
    qDebug("FSI Deleted\n");
 }

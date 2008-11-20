@@ -33,16 +33,21 @@ void RevelEncoder::setParameters( const QString &filename, const QSize &size,
    _rparams.quality = quality;
    _rparams.codec = REVEL_CD_XVID;
    _rparams.hasAudio = 0;
-
+   
    frame.width = size.width();
    frame.height = size.height();
-   frame.bytesPerPixel = 4;
-   frame.pixelFormat = REVEL_PF_RGBA;
+   frame.bytesPerPixel = 3;
+   //we are getting RGB24 from v4lconvert,
+   //this may not be well suited, but allow me to keep using any revel lib around without
+   //touching lib source code. 
+   frame.pixelFormat = REVEL_PF_BGR;
    frame.pixels = NULL;
 }
 
+/* disabled */
 void RevelEncoder::freePixels()
 {
+   return; 
    if( (int *)frame.pixels != NULL )
      {
 	delete [] (int *)frame.pixels;
@@ -67,11 +72,12 @@ const bool RevelEncoder::start()
      }
 
    freePixels();
-   frame.pixels = new int[ frame.width * frame.height ];
-   if( (int *)frame.pixels == 0 )
-     return false;
-
-   memset(frame.pixels,0x00,frame.width * frame.height * 4 );
+/* if you want to put this inside a thread or anywhere, and dont want to share the qimage ptr, then
+ * allocate memory here, and copy the image later when needed. Remember to call
+   and enable free_pixels() , that is currently disabled. 
+   This would lead to a better implementation in a future, if someone cares */
+   frame.pixels = NULL;
+    
    return true;
 
 }
@@ -81,7 +87,9 @@ const bool RevelEncoder::addVideoFrame( QImage * ptImage )
    int frameSize=0;
    if( NULL == ptImage )
      return false;
+
    frame.pixels = (int *) ptImage->bits();
+//   memcpy(frame.pixels, (int *)ptImage->bits(), ptImage->width() * ptImage->height() * 3 );
    if( Revel_EncodeFrame(_encoder_handler, &frame,&frameSize) != REVEL_ERR_NONE )
      {
 	qDebug("EncodeFrame Error\n");
@@ -102,6 +110,8 @@ const bool RevelEncoder::stop()
      }
    qDebug("Video Total Written: %d\n",total_size);
    Revel_DestroyEncoder(_encoder_handler);
+   /* Should be called when streamwidget is destroyed */
+   /* its sharing the same ptr */
    freePixels();
 
    return true;

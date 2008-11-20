@@ -43,6 +43,8 @@ ENDIF (V4LCONVERT_FOUND)
 IF (XVIDCORE_LIB AND REVEL_LIB )
   
   MESSAGE(STATUS "-> Video Record Enabled: ${XVIDCORE_LIB} && ${REVEL_LIB} Found")
+  MESSAGE(STATUS "* inside 3rd_libs, its shared librevel. Also check that its not founding libxvidcore.a.
+                    if it's, then remove it and check that libxvidcore.so exists (this would make cmake happy)")
   MESSAGE(STATUS "-> (testing ) Static Video Record Libs  may increase binary in 700kb plus")
    SET(OPTIONAL_LIBS ${REVEL_LIB} ${XVIDCORE_LIB} )  
    ADD_DEFINITIONS(-DWITH_XVID_RECORD  )

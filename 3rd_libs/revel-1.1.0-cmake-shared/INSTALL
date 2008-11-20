@@ -1,0 +1,7 @@
+This steps will create a shared revel library instead of the static one.
+
+(-lxvidcore required )
+
+# cmake .
+# make
+# make install

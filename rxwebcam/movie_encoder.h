@@ -30,7 +30,7 @@ class RevelEncoder
    RevelEncoder();
      /* Actually, frame rate and quality on vide are fixed... */
    void setParameters( const QString &filename, const QSize &size,
-		       float frate=15.0f, float quality=1.0f );
+		       float frate=20.0f, float quality=1.0f );
    void freePixels();
    const bool start();
    //pasar a un thread?
