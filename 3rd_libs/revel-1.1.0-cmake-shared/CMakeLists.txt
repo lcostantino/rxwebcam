@@ -17,7 +17,6 @@ ADD_LIBRARY( revel SHARED ${revel_SRCS} )
 
 target_link_libraries(revel  ${XVIDCORE_LIB} )
 
-
 install( TARGETS revel  DESTINATION /usr/local/lib/ )
-
+install( FILES include/revel.h DESTINATION /usr/include/ )
 

@@ -26,8 +26,9 @@
 
 class ExceptError
 {
+
  public:
-   typedef enum CritGrade{ NONE,INFO, WARNING, FATAL };
+   typedef enum CritGrade { NONE,INFO, WARNING, FATAL } CritGrade;
    /* To avoid translations duplicates, a qmap with ErrorsTypes could be defined too. idctm */
    static ExceptError * Instance()
      {

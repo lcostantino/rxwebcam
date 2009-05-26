@@ -20,6 +20,7 @@ Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 #include "BaseEncoder.h"
 
 #include <string>
+#include <string.h>
 using std::string;
 
 Revel_BaseEncoder::Revel_BaseEncoder(void)

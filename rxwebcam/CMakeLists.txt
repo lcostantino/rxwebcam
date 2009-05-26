@@ -83,7 +83,10 @@ set(rxwebcam_MOCS_HDRS
 )
 
 QT4_WRAP_CPP(rxwebcam_MOC_SRCS ${rxwebcam_MOCS_HDRS} )
-
+if(COMMAND cmake_policy)
+       cmake_policy(SET CMP0003 NEW)
+endif(COMMAND cmake_policy)
+	   
 add_executable( rxwebcam
 		${rxwebcam_SRCS}
 		${rxwebcam_UIS_H}
