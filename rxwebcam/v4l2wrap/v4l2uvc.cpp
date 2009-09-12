@@ -84,7 +84,7 @@ int V4L2Cmd::enum_controls()
 /* all this structs could be members of this class, but need to be cleaned each time */
    struct v4l2_queryctrl queryctrl;
    struct v4l2_input*    getinput;
-
+  
    getinput=(struct v4l2_input *) calloc(1, sizeof(struct v4l2_input));
    memset(getinput, 0, sizeof(struct v4l2_input));
    getinput->index=0;

@@ -56,6 +56,7 @@ int FormatV4L2Convert::convert(unsigned char *p, int len)
    int res=0;
    if ( v4lconvert_convert(v4lconvert_data,srcFmt(),dstFmt(), p, len, dst_buf,fmt.sizeImage()) < 0)
      {
+	
 	if( errno != -EAGAIN ) //pac73xx
 	  return -1;
 

@@ -3,7 +3,7 @@
    Based on luvcview. Ported from qt3 , some features may be missed.
    For a real command interface app, look at v4l qt control app on LinuxTv.org code.
  
-   Costantino Leandro <le_costantino@pixartargentina.com.ar>
+   Costantino Leandro <le_costantino@gmail.com>
 
  */
     /*******************************************************************************
@@ -135,7 +135,6 @@ class QSliderT : public QSlider
 
    void changedvalue(int newVal)
      {
-	fprintf(stderr,"Val: %d NewVal: %d\n",_old_value,newVal);
 	emit( updateDataController( _control_id,_old_value,newVal, V4L2_CTRL_TYPE_INTEGER ));
 	_old_value = newVal; //prevValue() not anymore in qt4 :(
      }

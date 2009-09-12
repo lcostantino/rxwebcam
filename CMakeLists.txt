@@ -2,7 +2,7 @@ project (rxwebcam)
 cmake_minimum_required(VERSION 2.4.0)
 find_package(Qt4 REQUIRED)
 
-# set( CMAKE_BUILD_TYPE "Debug")
+#set( CMAKE_BUILD_TYPE "Debug")
 
 IF ( CMAKE_BUILD_TYPE STREQUAL "Debug" )
    ADD_DEFINITIONS("-DQT_DEBUG -g -DMANT ")

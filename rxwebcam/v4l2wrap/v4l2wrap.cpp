@@ -114,11 +114,18 @@ int V4L2Wrap::readFrameQtConvert (QImage *current_frame)
 		   * a qimage every time dont fit my needs. LEts do it this way.
 		   * This, must be really tested... */
 		  //memset(so,0x00,current_frame->numBytes());
-		  if( so != 0 && current_frame->numBytes() >= ret )
-		     memcpy(so,V4LConvert.dstBuf(),ret);
-		  else
-		    return -1;
+		
+// pac7311
+		  if( ret == -1 ) 
+			 return 1;
+		    
 		  
+		  if( so != 0 && ret > 0 && current_frame->numBytes() >= ret )
+		    {
+		      memcpy(so,V4LConvert.dstBuf(),ret);
+		    }
+		  
+
 /*		  This was needed for Convert from rgb24 to rgb32. Now i use RGB_..888 (24bits), so 
  *                lest remove it, but keep it commented for future tests.
  *                
@@ -140,7 +147,7 @@ int V4L2Wrap::readFrameQtConvert (QImage *current_frame)
 		     
 	       }
 	  }
-       	else //UNTESTED, this shouldn't work..
+        else //UNTESTED, this shouldn't work..
 	current_frame->loadFromData (Grabber->frameData(),Grabber->frameSize());
 
 	return 1;
@@ -192,5 +199,5 @@ void V4L2Wrap::setFileDescriptor(int fd )
 {
    control_webcam.copyFileDescriptor( fd); 
    //if any control widget was associated, signals will be emited from there
-//   control_webcam.enum_controls(); 
+   control_webcam.enum_controls(); 
 }
